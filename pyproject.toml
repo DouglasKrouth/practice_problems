@@ -7,8 +7,18 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+
+
+[tool.poetry.group.dev.dependencies]
 pytest = "^8.2.2"
 
+# pyproject.toml
+[tool.pytest.ini_options]
+minversion = "6.0"
+# addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
 
 [build-system]
 requires = ["poetry-core"]

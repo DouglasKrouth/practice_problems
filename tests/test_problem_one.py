@@ -22,10 +22,13 @@ prices = [
 
 expected_group_prices = [
     BestGroupPrice("CA", "M1", 200.00, "Military"),
-    BestGroupPrice("CA", "S1", 225.00, "Senior"),
     BestGroupPrice("CB", "M1", 230.00, "Military"),
+    BestGroupPrice("CA", "S1", 225.00, "Senior"),
     BestGroupPrice("CB", "S1", 245.00, "Senior"),
 ]
 
+
 def test_get_best_group_prices():
-    assert(get_best_group_prices(rates, prices) == expected_group_prices)
+    bgp = get_best_group_prices(rates, prices)
+    assert len(bgp) == len(expected_group_prices)
+    assert all([a == b for a, b in zip(bgp, expected_group_prices)])
